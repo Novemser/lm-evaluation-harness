@@ -378,7 +378,8 @@ def evaluate(
     if lm.model.config.enable_weight_activation_based_pruning or\
         lm.model.config.record_weight_wise_activation or\
         lm.model.config.analyze_layer_norm_affect or\
-        lm.model.config.record_mlp_activation:
+        lm.model.config.record_mlp_activation or\
+        lm.model.config.record_mlp_input:
         assert lm.model.prune_metadata != None
         if lm.model.prune_metadata.layers is None:
             raise RuntimeError("Layers to instrument is not set properly")
